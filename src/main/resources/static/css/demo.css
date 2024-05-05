@@ -1,0 +1,38 @@
+
+body {
+    background-color: midnightblue;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+}
+header {
+    background-color: blue;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+h1, h2 {
+    margin-top: 0;
+}
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 0 20px;
+}
+p {
+    margin-bottom: 20px;
+}
+
+.navbar a{
+    text-decoration: none;
+    border: 0.2px solid #000;
+    color: white;
+    background: blue;
+    padding: 5px;
+    border-radius: 1px;
+
+}
+ .navbar a:hover{
+     color:orange;
+ }
