@@ -33,10 +33,5 @@ public class LoginPageController {
     public String displayLoginSuccess(){
         return"/LoginSuccess";
     }
-    @GetMapping("/createAccount")
-    public String displayCreateAccount(){
-        return"/CreateAccount";
-    }
-
 
 }
