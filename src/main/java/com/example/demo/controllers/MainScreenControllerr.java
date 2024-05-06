@@ -56,7 +56,7 @@ public class MainScreenControllerr {
     }
     @GetMapping("/landingPage")
     public String showLandingPage() {
-        return "LandingPage"; // Returns about.html
+        return "LandingPage";
     }
 
 
