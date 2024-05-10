@@ -39,10 +39,7 @@ public class CreateAccountController {
         // This returns a JSON or XML with the users
         return userRepository.findAll();
     }
-/**
-    @GetMapping("/createAccountSuccess")
-    public String displayCreateAccountSuccess(){
-        return"/CreateAccountSuccess";
-    }
- **/
+
+
+
 }
