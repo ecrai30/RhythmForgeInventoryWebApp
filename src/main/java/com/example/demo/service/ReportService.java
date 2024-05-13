@@ -4,7 +4,8 @@ import com.example.demo.domain.Part;
 import com.example.demo.repositories.PartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Service
@@ -29,10 +30,11 @@ class ReportService {
         report.append("<!DOCTYPE html>\n");
         report.append("<html>\n");
         report.append("<head>\n");
-        report.append("<title>Parts Report</title>\n");
+        report.append("<title>Current Parts Inventory Report</title>\n");
         report.append("</head>\n");
         report.append("<body>\n");
-        report.append("<h1>Parts Report</h1>\n");
+        report.append("<h1>Current Parts Inventory Report</h1>\n");
+        report.append("<p>Generated on: ").append(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))).append("</p>\n");
         report.append("<table border=\"1\">\n");
         report.append("<tr><th>Name</th><th>Price</th><th>Inventory</th></tr>\n");
         List<Part> parts = getAllParts();
@@ -46,7 +48,8 @@ class ReportService {
         report.append("</table>\n");
         report.append("</body>\n");
         report.append("</html>");
-        report.append("<a href=\"http://localhost:8080/\">Return\n" + "  to Inventory</a>");
+        report.append("<br>");
+        report.append("<a href=\"http://localhost:8080/mainscreen\">Return\n" + "  to Inventory</a>");
         return report.toString();
     }
 }
