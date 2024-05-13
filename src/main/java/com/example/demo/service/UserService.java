@@ -32,5 +32,14 @@ public class UserService {
         // Save the user if username and email are unique
         return userRepository.save(user);
     }
+
+    public boolean authenticate(String username, String password) {
+            User user = userRepository.findByUsername(username);
+            if(user !=null){
+                return user.getPassword().equals(password);
+            }
+            return false;
+        }
     }
+
 
