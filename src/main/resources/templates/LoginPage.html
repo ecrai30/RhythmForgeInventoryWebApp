@@ -72,6 +72,10 @@
 
         <!-- Validation messages for incorrect login -->
         <!--<div class="error-message">Invalid username or password. Please try again.</div>-->
+        <!-- Display error message if present -->
+        <div th:if="${error}" class="error-message">
+            <p th:text="${error}"></p>
+        </div>
 
         <input type="submit" value="Login">
         <br>
