@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 
+import java.util.Optional;
+
+/**
 @Service
 public class UserService {
 
@@ -42,4 +45,42 @@ public class UserService {
         }
     }
 
+**/
+@Service
+public class UserService {
 
+    @Autowired
+    private UserRepository userRepository;
+
+    public User registerUser(User user, BindingResult bindingResult) {
+
+        String username = user.getUsername();
+        String email = user.getEmail();
+
+        if (userRepository.existsByUsername(username)) {
+            bindingResult.rejectValue("username", "error.user", "Username already exists");
+        }
+
+        if (userRepository.existsByEmail(email)) {
+            bindingResult.rejectValue("email", "error.user", "Email already exists");
+        }
+
+        if (!user.getPassword().equals(user.getConfirmPassword())) {
+            bindingResult.rejectValue("confirmPassword", "error.user", "Passwords do not match");
+        }
+
+        // If there are binding errors, return null
+        if (bindingResult.hasErrors()) {
+            return null;
+        }
+        // Save the user if validation passes
+        return userRepository.save(user);
+    }
+
+
+    public boolean authenticate(String username, String password) {
+        Optional<User> userOptional = userRepository.findByUsername(username);
+        return userOptional.isPresent() && userOptional.get().getPassword().equals(password);
+    }
+
+}

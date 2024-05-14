@@ -68,7 +68,7 @@ public class User {
     public String getConfirmPassword() {
         return confirm_password;
     }
-    public void setConfirmPassword(String confirmPassword) {
-        this.confirm_password = confirmPassword;
+    public void setConfirmPassword(String confirm_password) {
+        this.confirm_password = confirm_password;
     }
 }
