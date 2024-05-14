@@ -64,7 +64,7 @@ public class UserService {
         if (userRepository.existsByEmail(email)) {
             bindingResult.rejectValue("email", "error.user", "Email already exists");
         }
-
+        //delete
         if (!user.getPassword().equals(user.getConfirmPassword())) {
             bindingResult.rejectValue("confirmPassword", "error.user", "Passwords do not match");
         }
@@ -83,4 +83,11 @@ public class UserService {
         return userOptional.isPresent() && userOptional.get().getPassword().equals(password);
     }
 
+    public boolean existsByUsername(String username) {
+        return userRepository.existsByUsername(username);
+    }
+
+    public boolean existsByEmail(String email) {
+        return userRepository.existsByEmail(email);
+    }
 }

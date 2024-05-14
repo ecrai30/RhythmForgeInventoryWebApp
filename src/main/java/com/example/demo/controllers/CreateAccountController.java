@@ -34,6 +34,20 @@ public class CreateAccountController {
             return "/CreateAccount"; // Return to the form with error message
         }
 
+        // Check if username and email already exist
+        if (userService.existsByUsername(user.getUsername())) {
+            bindingResult.rejectValue("username", "error.user", "Username already exists");
+
+        }
+
+        if (userService.existsByEmail(user.getEmail())) {
+            bindingResult.rejectValue("email", "error.user", "Email already exists");
+
+        }
+        if(bindingResult.hasErrors()){
+            return "/CreateAccount";
+        }
+
         // Proceed with account creation
         userService.registerUser(user, bindingResult);
         return "redirect:/createAccountSuccess"; // Redirect to success page
