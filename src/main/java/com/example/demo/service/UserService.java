@@ -41,6 +41,10 @@ public class UserService {
         String hashedPassword = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt());
         user.setPassword(hashedPassword);
 
+        // Hash the password before saving it to the database
+        String hashedconfirmPassword = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt());
+        user.setConfirmPassword(hashedconfirmPassword);
+
         // Save the user if validation passes
         return userRepository.save(user);
     }
