@@ -2,58 +2,26 @@ package com.example.demo.service;
 
 import com.example.demo.User;
 import com.example.demo.repositories.UserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.util.Optional;
 
-/**
 @Service
 public class UserService {
 
     @Autowired
     private UserRepository userRepository;
 
-    public User createUser(User user, BindingResult bindingResult) {
-        String username = user.getUsername();
-        String email = user.getEmail();
-
-        // Check if username and email already exist
-        if (userRepository.existsByUsername(username) && userRepository.existsByEmail(email)) {
-            throw new IllegalArgumentException("Username and email already exist");
-        } else if (userRepository.existsByUsername(username)) {
-            throw new IllegalArgumentException("Username already exists");
-        } else if (userRepository.existsByEmail(email)) {
-            throw new IllegalArgumentException("Email already exists");
-        }
-        if (!user.getPassword().equals(user.getConfirmPassword())) {
-            bindingResult.rejectValue("confirm_password", "error.user", "Passwords do not match");
-            return null;
-        }
-
-        // Save the user if username and email are unique
-        return userRepository.save(user);
-    }
-
-    public boolean authenticate(String username, String password) {
-            User user = userRepository.findByUsername(username);
-            if(user !=null){
-                return user.getPassword().equals(password);
-            }
-            return false;
-        }
-    }
-
-**/
-@Service
-public class UserService {
-
-    @Autowired
-    private UserRepository userRepository;
+    private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     public User registerUser(User user, BindingResult bindingResult) {
-
+        // Validate user input
         String username = user.getUsername();
         String email = user.getEmail();
 
@@ -64,15 +32,15 @@ public class UserService {
         if (userRepository.existsByEmail(email)) {
             bindingResult.rejectValue("email", "error.user", "Email already exists");
         }
-        //delete
-        if (!user.getPassword().equals(user.getConfirmPassword())) {
-            bindingResult.rejectValue("confirmPassword", "error.user", "Passwords do not match");
-        }
 
         // If there are binding errors, return null
         if (bindingResult.hasErrors()) {
             return null;
         }
+        // Hash the password before saving it to the database
+        String hashedPassword = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt());
+        user.setPassword(hashedPassword);
+
         // Save the user if validation passes
         return userRepository.save(user);
     }
@@ -80,7 +48,7 @@ public class UserService {
 
     public boolean authenticate(String username, String password) {
         Optional<User> userOptional = userRepository.findByUsername(username);
-        return userOptional.isPresent() && userOptional.get().getPassword().equals(password);
+        return userOptional.isPresent() && passwordEncoder.matches(password, userOptional.get().getPassword());
     }
 
     public boolean existsByUsername(String username) {
