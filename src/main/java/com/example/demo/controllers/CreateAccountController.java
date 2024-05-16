@@ -53,40 +53,6 @@ public class CreateAccountController {
         return "redirect:/createAccountSuccess"; // Redirect to success page
     }
 
-   /**
-    public @ResponseBody String addNewUser (@Valid @ModelAttribute("user") User user, BindingResult bindingResult, Model model)  {
-        // @ResponseBody means the returned String is the response, not a view name
-        // @RequestParam means it is a parameter from the GET or POST request
-
-        User n = new User();
-        n.setName(name);
-        n.setEmail(email);
-        n.setPassword(password);
-        n.setConfirmPassword(confirm_password);
-        n.setUsername(username);
-        userRepository.save(n);
-        return "Saved";
-
-
-        if (bindingResult.hasErrors()) {
-
-            return "/CreateAccount";
-        }
-
-        userService.registerUser(user,bindingResult);
-
-        return "redirect:/createAccountSuccess";
-    }
-    **/
-
-    /**
-    // Delete the following code
-    @GetMapping(path="/all")
-    public @ResponseBody Iterable<User> getAllUsers() {
-        // This returns a JSON or XML with the users
-        return userRepository.findAll();
-    }
-    **/
 
     @GetMapping ("/createAccountFailure")
     public String displayCreateAccountFailure(){

@@ -20,7 +20,7 @@ public class User {
 
     @NotNull
     @NotEmpty(message = "Password is required")
-    @Size(min=3) //Change after test
+    @Size(min=6) //Change after test
     private String password;
 
     @NotEmpty
