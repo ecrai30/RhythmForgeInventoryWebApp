@@ -79,7 +79,7 @@
     <hr>
     <h5>Welcome to the Rhythm Forge Inventory System, your go-to tool for managing our drumming inventory efficiently!</h5>
     <hr>
-    <h2>Parts</h2>
+    <h2>Drum Parts</h2>
     <form th:action="@{/mainscreen}">
         Filter: <input type="text" name="partkeyword" id="partkeyword" size="50" th:value="${partkeyword}" required />
         &nbsp;
@@ -118,7 +118,8 @@
         </tr>
         </tbody>
     </table>
-    <h2>Products</h2>
+    <br>
+    <h2>Drums and Accessories</h2>
     <form th:action="@{/mainscreen}">
         Filter: <input type="text" name="productkeyword" id="productkeyword" size="50" th:value="${productkeyword}" required />
         &nbsp;
@@ -151,7 +152,7 @@
             <td><a th:href="@{/showProductFormForUpdate(productID=${tempProduct.id})}" class="btn btn-primary btn-sm mb-3">Update</a>
                 <a th:href="@{/deleteproduct(productID=${tempProduct.id})}" class="btn btn-primary btn-sm mb-3"
                    onclick="if(!(confirm('Are you sure you want to delete this product?')))return false">Delete</a>
-                <a th:href="@{/buyProduct(productId=${tempProduct.id})}" class="btn btn-primary btn-sm mb-3">Prepare for Construction</a>
+                <a th:href="@{/buyProduct(productId=${tempProduct.id})}" class="btn btn-primary btn-sm mb-3">Deliver to Customer</a>
             </td>
         </tr>
         </tbody>
