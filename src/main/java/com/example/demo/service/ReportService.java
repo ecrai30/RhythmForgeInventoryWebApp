@@ -49,7 +49,7 @@ class ReportService {
         report.append("</body>\n");
         report.append("</html>");
         report.append("<br>");
-        report.append("<a href=\"http://localhost:8080/mainscreen\">Return\n" + "  to Stockroom</a>");
+        report.append("<a href=\"/mainscreen\">Return\n" + "  to Stockroom</a>");
         return report.toString();
     }
 }
