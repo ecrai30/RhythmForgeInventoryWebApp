@@ -41,11 +41,11 @@ public class BuyProductController {
 }
     @GetMapping("/confirmationBuyNow")
     public String displayPurchaseSuccess(){
-        return"/confirmationBuyNow";
+        return"confirmationBuyNow";
     }
 
     @GetMapping("confirmationBuyNowError")
     public String displayPurchaseError() {
-        return "/confirmationBuyNowError";
+        return "confirmationBuyNowError";
     }
 }

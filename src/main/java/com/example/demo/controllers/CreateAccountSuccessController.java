@@ -10,7 +10,7 @@ public class CreateAccountSuccessController {
 
     @GetMapping ("/createAccountSuccess")
     public String displayCreateAccountSuccess(){
-        return"/CreateAccountSuccess";
+        return"CreateAccountSuccess";
     }
 
 

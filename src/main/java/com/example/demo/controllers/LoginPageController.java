@@ -29,18 +29,18 @@ public class LoginPageController {
         // Perform authentication logic here
         if (userService.authenticate(username, password)) {
             // Redirect to main screen if login successful
-            return "redirect:/loginSuccess";
+            return "redirect:loginSuccess";
         } else {
             // Redirect back to login page with error message if login failed
             //model.addAttribute("error", "Invalid username or password. Please try again.");
             redirectAttributes.addFlashAttribute("error", "Invalid username or password. Please try again.");
-            return "redirect:/loginPage";
+            return "redirect:loginPage";
         }
     }
 
     @GetMapping("/loginSuccess")
     public String displayLoginSuccess(){
-        return"/LoginSuccess";
+        return"LoginSuccess";
     }
 
 }

@@ -23,7 +23,7 @@ public class CreateAccountController {
     @GetMapping("/createAccount")
     public String displayCreateAccount(Model model){
         model.addAttribute("user", new User());
-        return"/CreateAccount";
+        return"CreateAccount";
     }
 
     @PostMapping(path="/createAccount") // Map ONLY POST Requests
@@ -31,7 +31,7 @@ public class CreateAccountController {
         // Check if passwords match
         if (!user.getPassword().equals(user.getConfirmPassword())) {
             model.addAttribute("passwordMismatchError", "Passwords do not match");
-            return "/CreateAccount"; // Return to the form with error message
+            return "CreateAccount"; // Return to the form with error message
         }
 
         // Check if username and email already exist
@@ -45,18 +45,18 @@ public class CreateAccountController {
 
         }
         if(bindingResult.hasErrors()){
-            return "/CreateAccount";
+            return "CreateAccount";
         }
 
         // Proceed with account creation
         userService.registerUser(user, bindingResult);
-        return "redirect:/createAccountSuccess"; // Redirect to success page
+        return "redirect:createAccountSuccess"; // Redirect to success page
     }
 
 
     @GetMapping ("/createAccountFailure")
     public String displayCreateAccountFailure(){
-        return"/createAccountFailure";
+        return"createAccountFailure";
     }
 
 
