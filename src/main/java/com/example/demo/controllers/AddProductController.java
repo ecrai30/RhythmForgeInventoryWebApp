@@ -99,7 +99,7 @@ public class AddProductController {
         ProductService repo = context.getBean(ProductServiceImpl.class);
         Product theProduct = repo.findById(theId);
         product1=theProduct;
-    //    this.product=product;
+
         //set the employ as a model attibute to prepopulate the form
         theModel.addAttribute("product", theProduct);
         theModel.addAttribute("assparts",theProduct.getParts());
@@ -134,8 +134,6 @@ public class AddProductController {
 
     @GetMapping("/associatepart")
     public String associatePart(@Valid @RequestParam("partID") int theID, Model theModel){
-    //    theModel.addAttribute("product", product);
-    //    Product product1=new Product();
         if (product1.getName()==null) {
             return "saveproductscreen";
         }
