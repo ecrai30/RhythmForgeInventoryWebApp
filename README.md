@@ -1,29 +1,48 @@
-<strong>**DO NOT DISTRIBUTE OR PUBLICLY POST SOLUTIONS TO THESE LABS. MAKE ALL FORKS OF THIS REPOSITORY WITH SOLUTION CODE PRIVATE. PLEASE REFER TO THE STUDENT CODE OF CONDUCT AND ETHICAL EXPECTATIONS FOR COLLEGE OF INFORMATION TECHNOLOGY STUDENTS FOR SPECIFICS. **</strong>
+Installation and Using the Application
+Login and Signup
+Accessing the Application
 
-# WESTERN GOVERNOR UNIVERSITY 
-## D424 – SOFTWARE ENGINEERING CAPSTONE
-Welcome to Software Engineering Capstone! This is an opportunity for students to develop full stack software engineering documentation and applications. They will execute documentation, unit testing, revision of software applications, and deploy software applications with scripts and containers on a cloud platform.
+Open your web browser and navigate to the application URL.
+You will be greeted with a welcome message and a "Get Started" button.
+Login
 
-FOR SPECIFIC TASK INSTRUCTIONS AND REQUIREMENTS FOR THIS ASSESSMENT, PLEASE REFER TO THE COURSE PAGE.
-BASIC INSTRUCTIONS
-For this assessment, you will deploy your developed full stack software product to a web service of your choice.
+Click on the "Login" button.
+Enter your username and password.
+Click "Submit" to log in.
+Signup
 
-
-## SUPPLEMENTAL RESOURCES  
-1.	How to clone a project to IntelliJ using Git?
-
-> Ensure that you have Git installed on your system and that IntelliJ is installed using [Toolbox](https://www.jetbrains.com/toolbox-app/). Make sure that you are using version 2022.3.2. Once this has been confirmed, click the clone button and use the 'IntelliJ IDEA (HTTPS)' button. This will open IntelliJ with a prompt to clone the proejct. Save it in a safe location for the directory and press clone. IntelliJ will prompt you for your credentials. Enter in your WGU Credentials and the project will be cloned onto your local machine.  
-
-2. How to create a branch and start Development?
-
-- GitLab method
-> Press the '+' button located near your branch name. In the dropdown list, press the 'New branch' button. This will allow you to create a name for your branch. Once the branch has been named, you can select 'Create Branch' to push the branch to your repository.
-
-- IntelliJ method
-> In IntelliJ, Go to the 'Git' button on the top toolbar. Select the new branch option and create a name for the branch. Make sure checkout branch is selected and press create. You can now add a commit message and push the new branch to the local repo.
-
-## SUPPORT
-If you need additional support, please navigate to the course page and reach out to your course instructor.
-
-## FUTURE USE
-Take this opportunity to create or add to a simple resume portfolio to highlight and showcase your work for future use in career search, experience, and education!
+Click on the "Signup" button if you do not have an account.
+Fill in the required fields: username, email, password, and confirm password.
+Click "Submit" to create a new account.
+Use the newly created credentials to log in.
+Products and Parts
+Create a New Product
+Navigate to the Products Page
+After logging in, click on the "Products" tab in the main menu.
+Add a New Product
+Click on the "Add Product" button.
+Fill in the product details: name, price, stock, minimum, and maximum quantity.
+Click "Save" to add the new product to the inventory.
+Create a New Inhouse Part
+Navigate to the Parts Page
+Click on the "Parts" tab in the main menu.
+Add a New Inhouse Part
+Click on the "Add Inhouse Part" button.
+Fill in the part details: name, price, stock, minimum, maximum quantity, and machine ID.
+Click "Save" to add the new inhouse part to the inventory.
+Create a New Outsourced Part
+Navigate to the Parts Page
+Click on the "Parts" tab in the main menu.
+Add a New Outsourced Part
+Click on the "Add Outsourced Part" button.
+Fill in the part details: name, price, stock, minimum, maximum quantity, and company name.
+Click "Save" to add the new outsourced part to the inventory.
+Reports
+Generate Reports
+On the main page, click on the "Generate Report" button.
+View the report displaying the current inventory of parts and products.
+Search
+Search for Products or Parts
+Use the search bar on the main page.
+Enter the name or ID of the product or part you are looking for.
+View the search results displayed on the page.
